@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-df = pd.read_csv('/Users/walterjr/Downloads/violencia_2009_2021.csv', encoding='latin-1')
+df = pd.read_csv('arquivo.csv', encoding='latin-1')
 
 # lista1 = SINAN.list_diseases()
 # lista2 = SINAN.get_available_years('Violência Domestica')
