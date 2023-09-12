@@ -15,3 +15,21 @@ profile = ProfileReport(df)
 profile.to_file("relatorio_pandas_profiling.html")
 
 
+
+df['DT_OCOR'] = pd.to_datetime(df['DT_OCOR'], format='%d/%m/%Y')
+df['DT_OCOR'].info()
+
+df['dia_semana'] = df['DT_OCOR'].dt.dayofweek
+nomes_dias_semana = {
+    0: 'Segunda-feira',
+    1: 'Terça-feira',
+    2: 'Quarta-feira',
+    3: 'Quinta-feira',
+    4: 'Sexta-feira',
+    5: 'Sábado',
+    6: 'Domingo'
+}
+agrupado = df.groupby('dia_semana')['DT_OCOR'].count().reset_index()
+agrupado['dia_semana'] = agrupado['dia_semana'].map(nomes_dias_semana)
+
+
